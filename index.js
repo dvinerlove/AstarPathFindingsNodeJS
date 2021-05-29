@@ -107,7 +107,7 @@ var maze =   [
   ['#','#','#','#','2','#','#','#','#'],
   ['#','+','+','+','#','+','+','+','#'],
   ['+','+','#','+','#','+','#','+','#'],
-  ['*','+','#','+','0','+','#','+','2'],
+  ['#','+','#','+','0','+','#','+','2'],
   ['#','#','#','+','#','#','#','#','#'],
   ['#','#','+','+','#','#','#','#','#'],
   ['#','#','+','#','#','#','#','#','#'],
@@ -119,26 +119,31 @@ var startLocation ;
 for (var i = 0; i < maze.length; i++) {
 for (var j = 0; j < maze.length; j++) {
     if (maze[i][j]=='0') {
-      maze[i][j]='B'
+      maze[i][j]='A';
+      startLocation = [i,j];
     }
 }
 }
 
 for (var i = 0; i < maze.length; i++) {
   if (maze[i][0]=='+') {
-      startLocation = [i,0];
+    maze[i][0]='B';
+    //  startLocation = [i,0];
       break;
   }
   if (maze[i][maze.length]=='+') {
-      startLocation = [i,maze.length];
+      maze[i][maze.length]='B';
+      //startLocation = [i,maze.length];
       break;
   }
   if (maze[0][i]=='+') {
-      startLocation = [0,i];
+      maze[0][i]='B';
+      //startLocation = [0,i];
       break;
   }
   if (maze[maze.length-1][i]=='+') {
-      startLocation = [maze.length-1,i];
+      maze[maze.length-1][i]='B';
+    //  startLocation = [maze.length-1,i];
       break;
   }
 }
